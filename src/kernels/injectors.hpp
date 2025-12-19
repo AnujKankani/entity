@@ -616,8 +616,8 @@ namespace kernel {
     }
 
     Inline auto injected_ppc(const coord_t<M::Dim>& x_Ph,
-                             real_t& nppc_distribution,
-                             real_t& weight_distribution) const -> npart_t {
+                             real_t& ppc_dist,
+                             real_t& weight_dist) const -> npart_t {
       spatial_dist(x_Ph, ppc_dist, weight_dist);
       const auto ppc_real = ppc0 * ppc_dist;
       auto       ppc      = static_cast<npart_t>(ppc_real);

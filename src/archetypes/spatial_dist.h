@@ -43,7 +43,7 @@ namespace arch {
 
     Inline auto operator()(const coord_t<M::Dim>&,
                            real_t& nppc_distribution,
-                           real_t& weight_distribution) const -> real_t {
+                           real_t& weight_distribution) const {
       nppc_distribution = ONE;
       weight_distribution = ONE;
     }
@@ -71,7 +71,7 @@ namespace arch {
 
     Inline auto operator()(const coord_t<M::Dim>& x_Ph,
                            real_t& nppc_distribution,
-                           real_t& weight_distribution) const -> real_t {
+                           real_t& weight_distribution) const {
       coord_t<M::Dim> x_Cd { ZERO };
       metric.template convert<Crd::Ph, Crd::Cd>(x_Ph, x_Cd);
       real_t dens { ZERO };
@@ -119,7 +119,7 @@ namespace arch {
 
     Inline auto operator()(const coord_t<M::Dim>& x_Ph,
                            real_t& nppc_distribution,
-                           real_t& weight_distribution) const -> real_t {
+                           real_t& weight_distribution) const {
       coord_t<M::Dim> x_Cd { ZERO };
       metric.template convert<Crd::Ph, Crd::Cd>(x_Ph, x_Cd);
       real_t dens { ZERO };
@@ -138,7 +138,7 @@ namespace arch {
         raise::KernelError(HERE, "Invalid dimension");
       }
       if (0.9 * target_density > dens) {
-        nppc_distribution = (target - dens) / target_max_density;
+        nppc_distribution = (target_density - dens) / target_density;
         weight_distribution = ONE;
       } else {
         nppc_distribution = ZERO;
