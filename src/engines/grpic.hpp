@@ -97,8 +97,10 @@ namespace ntt {
       //  "algorithms.toggles.fieldsolver");
       const auto fieldsolver_enabled = m_params.template get<bool>(
           "algorithms.fieldsolver.enable");
+      //const auto deposit_enabled = m_params.template get<bool>(
+      //  "algorithms.toggles.deposit");
       const auto deposit_enabled = m_params.template get<bool>(
-        "algorithms.toggles.deposit");
+          "algorithms.deposit.enable");
       const auto clear_interval = m_params.template get<std::size_t>(
         "particles.clear_interval");
 
