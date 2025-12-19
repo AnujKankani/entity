@@ -93,8 +93,10 @@ namespace ntt {
     ~GRPICEngine() = default;
 
     void step_forward(timer::Timers& timers, domain_t& dom) override {
+      //const auto fieldsolver_enabled = m_params.template get<bool>(
+      //  "algorithms.toggles.fieldsolver");
       const auto fieldsolver_enabled = m_params.template get<bool>(
-        "algorithms.toggles.fieldsolver");
+          "algorithms.fieldsolver.enable");
       const auto deposit_enabled = m_params.template get<bool>(
         "algorithms.toggles.deposit");
       const auto clear_interval = m_params.template get<std::size_t>(
